@@ -1,0 +1,15 @@
+const categories = [
+    { name: "New" },
+    { name: "Trending" },
+    { name: "Action" },
+    { name: "Adventure" },
+    { name: "Animated" },
+    { name: "Comedy" },
+    { name: "Crime" },
+    { name: "Documentary" },
+    { name: "Drama" },
+    { name: "History" },
+    { name: "Horror" },
+    { name: "Reality" },
+    { name: "Sci-Fi" },
+]

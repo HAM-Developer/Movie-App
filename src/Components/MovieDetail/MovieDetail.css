@@ -1,0 +1,58 @@
+.moviedetail_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem;
+  color: var(--gray01);
+}
+.moviedetail_wrapper img {
+  width: 24rem;
+  margin-right: 4rem;
+  height: 34rem;
+  object-fit: cover;
+}
+.movie_cast img {
+  width: 4rem;
+  height: 4rem;
+}
+.movieInfo {
+  width: 100%;
+  flex-grow: 1;
+}
+.movieInfo_description p {
+  height: 5.25rem;
+  overflow-y: hidden;
+}
+.movieInfo_genre,
+.movieInfo_rating {
+  display: flex;
+  align-items: center;
+}
+.movieInfo_genre p:first-child,
+.movieInfo_rating p:first-child {
+  font-weight: 600;
+  margin: 0 0.5rem 0 0;
+  font-size: 1.15rem;
+}
+.movie_cast {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.movie_actors {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.movie_actors img {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 0;
+}
+.movie_cast h3 {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0.45rem 0;
+}
+.movieInfo_actors {
+  font-weight: 400;
+}

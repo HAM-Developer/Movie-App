@@ -1,0 +1,90 @@
+.section {
+  color: white;
+  width: 100%;
+}
+.section h2 {
+  font-weight: 100;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  margin: 1rem 1rem 1rem 3rem;
+  letter-spacing: 1px;
+}
+.section h1 {
+  margin: 0 0 1rem 3rem;
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+.search {
+  position: relative;
+  width: 90%;
+  margin: auto;
+}
+.search input[type="text"] {
+  padding: 1.5rem 3rem;
+  width: 85%;
+  margin: 1rem auto;
+  font-size: 1rem;
+  border-radius: 5rem;
+  border: none;
+  outline: none;
+  background-color: var(--blue03);
+  color: lightgray;
+}
+.search .searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 1.5rem;
+  transform: translateY(-50%);
+}
+.section .movie__section .movies,
+.movies {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.section .trending__movies {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.trending__wrapper {
+  width: 90%;
+  margin: auto;
+}
+.trending__movies .movie {
+  width: 32%;
+  margin: 1rem;
+}
+.bookmarkMovies h1 {
+  color: white;
+  text-align: center;
+}
+
+h1.page_heading {
+  text-align: left;
+  margin-left: 3rem;
+  color: white;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+@media screen and (min-width: 1200px) {
+  .section .movie__section {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .section .movie__section {
+    width: calc(100vw - 10rem);
+  }
+  .search {
+    margin-left: 6rem;
+  }
+  .section h1 {
+    margin-left: 6rem;
+  }
+}
