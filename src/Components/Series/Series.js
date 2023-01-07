@@ -1,24 +1,31 @@
-import React, { useContext } from 'react'
-import Movie from '../Movie/Movie'
+import "../Home/Home.css"
 import { MovieContext } from "../../App"
-import "../Section/Section.css"
+import TV from '../TV/TV'
+import { useContext } from "react"
 
-const Series = ({ bookmarking, getMovie }) => {
-    const moviesFeed = useContext(MovieContext)
-    let seriesOnly = []
-    moviesFeed.forEach(movie => {
-        if (movie.category === "series") {
-            seriesOnly.push(movie)
-        }
-    })
+
+const Series = () => {
+    const { tvFeed } = useContext(MovieContext)
+    const { getSeries } = useContext(MovieContext)
+    const { tvCategories } = useContext(MovieContext)
+    const { setTVGenreId } = useContext(MovieContext)
+
     return (
         <div className='series'>
+            <div className="series_categories categories_filter">
+                <ul>
+                    {
+                        tvCategories.map(category => (
+                            <li className="genre" id={category.id} key={category.id} onClick={() => setTVGenreId(category.id)}>{category.name}</li>
+                        ))
+                    }
+                </ul>
+            </div>
             <h1 className='page_heading'>Series</h1>
             <div className='movies'>    {
-                seriesOnly.map(dataset => (
-                    <Movie
-                        key={dataset.id} id={dataset.id} getMovie={getMovie}
-                        movieTitle={dataset.title} movieGenre={dataset.genre} movieRating={dataset.rating} movieImage={dataset.image} movieYear={dataset.year} bookmarking={bookmarking} />))
+                tvFeed.map(dataset => (
+                    <TV key={dataset.id} id={dataset.id} movieTitle={dataset.name} movieImage={dataset.poster_path} movieRating={dataset.vote_average} movieYear={dataset.first_air_date} getSeries={getSeries} />
+                ))
 
             }</div>
         </div>

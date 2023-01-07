@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Movie from '../Movie/Movie'
 import { MovieContext } from "../../Page/Home"
-import "../Section/Section.css"
+import "../Home/Home.css"
 
 const Bookmark = ({ bookMarkMovies }) => {
     return (

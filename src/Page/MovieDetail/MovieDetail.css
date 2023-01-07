@@ -6,28 +6,34 @@
   color: var(--gray01);
 }
 .moviedetail_wrapper img {
-  width: 24rem;
   margin-right: 4rem;
-  height: 34rem;
-  object-fit: cover;
 }
 .movie_cast img {
   width: 4rem;
   height: 4rem;
 }
-.movieInfo {
-  width: 100%;
-  flex-grow: 1;
+.movieInfo h2 {
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin: 0 0 0.25rem 0;
+}
+.movieInfo_description,
+.movieInfo_genre,
+.movieInfo_rating {
+  margin: 1rem 0;
 }
 .movieInfo_description p {
-  height: 5.25rem;
-  overflow-y: hidden;
+  margin: 1rem 0;
 }
+.movieInfo_date,
 .movieInfo_genre,
 .movieInfo_rating {
   display: flex;
   align-items: center;
 }
+.movieInfo_date p:first-child,
 .movieInfo_genre p:first-child,
 .movieInfo_rating p:first-child {
   font-weight: 600;

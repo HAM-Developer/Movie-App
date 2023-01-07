@@ -8,7 +8,7 @@
 }
 .movie .movie_img {
   width: 100%;
-  height: 12rem;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -33,6 +33,11 @@
   cursor: pointer;
   color: var(--gray01);
   letter-spacing: 1px;
+}
+.movie .movie_link {
+  height: 2rem;
+  list-style: none;
+  overflow-y: hidden;
 }
 .movie .bookmarkedIcon {
   position: absolute;
@@ -62,6 +67,12 @@
 @media screen and (min-width: 990px) {
   .movie {
     width: 22.5%;
+  }
+  .upcoming_movies .movie {
+    width: 11.45rem;
+  }
+  .upcoming_movies .movie .movie_img {
+    height: 18rem;
   }
   .movie .movie_img {
     height: 12rem;
