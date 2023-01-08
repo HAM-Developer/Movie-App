@@ -1,9 +1,25 @@
 .moviedetail_wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 4rem;
+  align-items: flex-start;
   color: var(--gray01);
+  margin-bottom: 4rem;
+  position: relative;
+  height: 75vh;
+  padding-top: 4rem;
+}
+.moviedetail .movie_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: brightness(0.25);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.moviedetail .moviedetail_img {
+  width: 300px;
 }
 .moviedetail_wrapper img {
   margin-right: 4rem;
@@ -11,6 +27,10 @@
 .movie_cast img {
   width: 4rem;
   height: 4rem;
+}
+.movieInfo {
+  width: 40%;
+  margin-top: 2rem;
 }
 .movieInfo h2 {
   font-weight: 400;
@@ -24,8 +44,25 @@
 .movieInfo_rating {
   margin: 1rem 0;
 }
+.movieInfo_description {
+  position: relative;
+}
 .movieInfo_description p {
-  margin: 1rem 0;
+  transition: all 0.25s ease-out;
+  margin: 1rem 0 0 0;
+}
+.movieInfo_description .read_btn {
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+  position: absolute;
+  bottom: -1.25rem;
+  left: 0;
+  font-weight: 700;
+}
+.movieInfo_description .desc_container {
+  overflow: hidden;
+  max-height: 80px;
+  transition: all 0.25s ease-out;
 }
 .movieInfo_date,
 .movieInfo_genre,
@@ -39,6 +76,9 @@
   font-weight: 600;
   margin: 0 0.5rem 0 0;
   font-size: 1.15rem;
+}
+.movieInfo_date {
+  margin-top: 2rem;
 }
 .movie_cast {
   display: flex;
@@ -61,4 +101,9 @@
 }
 .movieInfo_actors {
   font-weight: 400;
+}
+.moviedetail h1 {
+  color: white;
+  font-weight: 400;
+  margin: 0 0 1rem 3rem;
 }

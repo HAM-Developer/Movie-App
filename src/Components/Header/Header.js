@@ -6,13 +6,8 @@ import { MdLocalMovies, MdMovie } from "react-icons/md"
 import { BiCameraMovie } from "react-icons/bi"
 import { SiGravatar } from "react-icons/si"
 
-function Header({ changeFeed, data }) {
-    function filterResults(item) {
-        const result = data.filter(dataitem => {
-            return dataitem.category === item
-        })
-        changeFeed(result)
-    }
+function Header() {
+
     return (
         <header className="header_wrapper" >
             <div className='header'>
@@ -20,7 +15,7 @@ function Header({ changeFeed, data }) {
                     <MdMovie />
                 </div>
                 <nav className='menu' >
-                    <Link to="/"><IoGrid className="all" /></Link>
+                    <Link to="/" ><IoGrid className="all" /></Link>
                     <Link to="/movies"><BiCameraMovie className="movies" /></Link>
                     <Link to="/series"><MdLocalMovies className="series" /></Link>
                     <Link to="/bookmark"><BsFillBookmarkFill className="bookmark_movies" /></Link>

@@ -70,6 +70,7 @@
   margin: auto;
   position: relative;
   overflow-x: hidden;
+  margin-bottom: 2rem;
 }
 .upcoming_movies .movie {
   width: 180px;
@@ -79,36 +80,15 @@
 .upcoming_movies .movie .movie_img {
   width: auto;
   object-fit: contain;
-}
-.upcoming_movies .prev_Slide,
-.next_Slide {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  color: white;
-  background-color: rgba(211, 211, 211, 0.397);
-  border-radius: 2rem;
-  text-align: center;
-  padding: 0.75rem;
-  cursor: pointer;
-}
-.upcoming_movies .prev_Slide svg,
-.next_Slide svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-.upcoming_movies .prev_Slide {
-  left: -1%;
-}
-.upcoming_movies .next_Slide {
-  right: -1%;
+  cursor: auto;
 }
 .section .upcoming_movies .movies_wrapper {
   display: flex;
   position: relative;
   left: 0;
+  transition: all 0.25s ease-out;
   width: fit-content;
+  cursor: pointer;
 }
 h1.page_heading {
   text-align: left;
@@ -119,20 +99,36 @@ h1.page_heading {
 }
 .categories_filter {
   margin: 1rem 0;
-  width: auto;
+  width: 95%;
+  margin: auto;
+  overflow: hidden;
 }
-.categories_filter ul {
+
+.categories_filter .movie_categoryList {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  width: fit-content;
+  cursor: pointer;
 }
 .categories_filter li {
-  padding: 5px 3px;
-  border-radius: 5px;
+  padding: 3px 10px;
+  border-radius: 20px;
   list-style: none;
-  color: lightgray;
   box-shadow: 0 0 1px 1px lightgray;
   cursor: pointer;
+  margin: 0 5px;
+  transition: all 0.35s ease-out;
+}
+.categories_filter li:hover {
+  background-color: white;
+  color: var(--blue03);
+}
+.genre {
+  color: lightgray;
+}
+.active_category {
+  background-color: white;
+  color: var(--blue03);
 }
 @media screen and (min-width: 1200px) {
   .section .movie__section {
