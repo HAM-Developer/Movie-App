@@ -32,41 +32,43 @@ const MovieDetail = () => {
             descConRef.current.style.maxHeight = "80px"
             descBtnRef.current.childNodes[1].innerHTML = "More"
         }
-        console.log(descConHeight)
-        console.log(descConRef.current)
+        // console.log(descConHeight)
+        // console.log(descConRef.current)
     }
     return (
         <div className='moviedetail'>
-            <div className='moviedetail_wrapper'>
-                <img className='movie_bg' src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`} alt={movieDetails.title} />
-                <img className='moviedetail_img' src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`} alt={movieDetails.title} />
-                <div className='movieInfo'>
-                    <h2>{movieDetails.title}</h2>
-                    <p>{movieDetails.tagline}</p>
-                    <div className='movieInfo_description'>
-                        <h3>Description</h3>
-                        <div className='desc_container' ref={descConRef}>
-                            <p ref={descHeight}>{movieDetails.overview}</p>
+            <div className='moviedetail_container'>
+                <div className='moviedetail_wrapper'>
+                    <img className='movie_bg' src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`} alt={movieDetails.title} />
+                    <img className='moviedetail_img' src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`} alt={movieDetails.title} />
+                    <div className='movieInfo'>
+                        <h2>{movieDetails.title}</h2>
+                        <p>{movieDetails.tagline}</p>
+                        <div className='movieInfo_description'>
+                            <h3>Description</h3>
+                            <div className='desc_container' ref={descConRef}>
+                                <p ref={descHeight}>{movieDetails.overview}</p>
+                            </div>
+                            <span className='read_btn' onClick={showDescription} ref={descBtnRef}>
+                                Read <span>More</span></span>
                         </div>
-                        <span className='read_btn' onClick={showDescription} ref={descBtnRef}>
-                            Read <span>More</span></span>
-                    </div>
-                    <div className='movieInfo_date'>
-                        <p>Release Date: </p>
-                        <p>{movieDetails.release_date}</p>
-                    </div>
-                    <div className='movieInfo_genre'>
-                        <p>Genre: </p>
-                        {movieDetails.genres ? movieDetails.genres.map(genre => <p key={genre.id}>{genre.name}</p>) : ""}
-                    </div>
-                    <div className='movieInfo_rating'>
-                        <p>Rating:</p>
-                        <p>{`${movieDetails.vote_average}`.slice(0, 3)}</p>
+                        <div className='movieInfo_date'>
+                            <p>Release Date: </p>
+                            <p>{movieDetails.release_date}</p>
+                        </div>
+                        <div className='movieInfo_genre'>
+                            <h3>Genre: </h3>
+                            {movieDetails.genres ? movieDetails.genres.map(genre => <p key={genre.id}>{genre.name}</p>) : ""}
+                        </div>
+                        <div className='movieInfo_rating'>
+                            <p>Rating:</p>
+                            <p>{`${movieDetails.vote_average}`.slice(0, 3)}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <h1 >Similar Movies</h1>
-            <div className='movies'>
+            <div className='movies similar_movies'>
+                <h1 >Similar Movies</h1>
                 {
                     similarMovies.map(dataset => (
                         <Movie key={dataset.id} id={dataset.id} movieTitle={dataset.title} movieImage={dataset.poster_path} movieRating={dataset.vote_average} movieYear={dataset.release_date} movieGenre={dataset.genre_ids} />

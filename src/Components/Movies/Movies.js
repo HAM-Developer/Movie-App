@@ -12,7 +12,6 @@ const Movies = () => {
     const [movieCategories, setMovieCategories] = useState([])
     function changeMovieFeed(e) {
         setChangeFeed(movieFeed.filter(movie => parseInt(movie.genre_ids[0]) === e))
-        console.log(e)
         setCategoryId(e)
     }
     const getMovieData = () => {
