@@ -9,10 +9,10 @@ import { useState } from "react";
 
 function Header() {
     const links = [
-        { path: '/', icon: <IoGrid className="all" /> },
-        { path: '/movies', icon: <BiCameraMovie className="movies" /> },
-        { path: '/series', icon: <MdLocalMovies className="series" /> },
-        { path: '/bookmark', icon: <BsFillBookmarkFill className="all" /> },
+        { path: '/', name: "Home" },
+        { path: '/movies', name: "Movies" },
+        { path: '/series', name: "Series" },
+        { path: '/bookmark', name: "Bookmark" },
     ]
     const [linkId, setLinkId] = useState()
     function activeLink(e) {
@@ -25,7 +25,7 @@ function Header() {
                     <MdMovie />
                 </div>
                 <nav className='menu' >
-                    {links.map(link => <Link to={link.path} key={link.path} className={`${link.path === linkId ? "active_link" : "links"}`} onClick={() => activeLink(link.path)} ><svg>{link.icon}</svg></Link>)}
+                    {links.map(link => <Link to={link.path} key={link.path} className={`${link.path === linkId ? "active_link" : "links"}`} onClick={() => activeLink(link.path)} >{link.name}</Link>)}
                 </nav>
                 <div className='account_info'>
                     <SiGravatar />
