@@ -6,6 +6,9 @@ import Movie from '../../Components/Movie/Movie'
 import { useParams } from 'react-router-dom'
 const MovieDetail = () => {
     const { id } = useParams()
+    const descHeight = useRef(null)
+    const descConRef = useRef(null)
+    const descBtnRef = useRef("More")
     const [movieDetails, setMovieDetails] = useState([])
     const [similarMovies, setSimilarMovies] = useState([])
     useEffect(() => {
@@ -20,26 +23,25 @@ const MovieDetail = () => {
             setMovieDetails(res.data)
         })
     }
-    const descHeight = useRef(null)
-    const descConRef = useRef(null)
-    const descBtnRef = useRef("More")
+
     function showDescription() {
         let descConHeight = window.getComputedStyle(descConRef.current).maxHeight
-        if (descConHeight === "80px") {
+        if (descConHeight === "75px") {
             descConRef.current.style.maxHeight = window.getComputedStyle(descHeight.current).maxHeight
             descBtnRef.current.childNodes[1].innerHTML = "Less"
         } else {
-            descConRef.current.style.maxHeight = "80px"
+            descConRef.current.style.maxHeight = "75px"
             descBtnRef.current.childNodes[1].innerHTML = "More"
         }
-        // console.log(descConHeight)
-        // console.log(descConRef.current)
+
     }
     return (
         <div className='moviedetail'>
-            <div className='moviedetail_container'>
-                <div className='moviedetail_wrapper'>
-                    <img className='movie_bg' src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`} alt={movieDetails.title} />
+            <div className='moviedetail_container' style={{
+                backgroundImage:
+                    `url('https://image.tmdb.org/t/p/w1280${movieDetails.backdrop_path}')`
+            }}>
+                <div className='moviedetail_wrapper' >
                     <img className='moviedetail_img' src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`} alt={movieDetails.title} />
                     <div className='movieInfo'>
                         <h2>{movieDetails.title}</h2>
@@ -53,15 +55,15 @@ const MovieDetail = () => {
                                 Read <span>More</span></span>
                         </div>
                         <div className='movieInfo_date'>
-                            <p>Release Date: </p>
+                            <h3>Release Date:</h3>
                             <p>{movieDetails.release_date}</p>
                         </div>
                         <div className='movieInfo_genre'>
-                            <h3>Genre: </h3>
+                            <h3>Genre:</h3>
                             {movieDetails.genres ? movieDetails.genres.map(genre => <p key={genre.id}>{genre.name}</p>) : ""}
                         </div>
                         <div className='movieInfo_rating'>
-                            <p>Rating:</p>
+                            <h3>Rating:</h3>
                             <p>{`${movieDetails.vote_average}`.slice(0, 3)}</p>
                         </div>
                     </div>

@@ -12,14 +12,21 @@ const Movies = () => {
     const [movieCategories, setMovieCategories] = useState([])
     function changeMovieFeed(e) {
         setChangeFeed(movieFeed.filter(movie => parseInt(movie.genre_ids[0]) === e))
+        if (e === 13) {
+            setChangeFeed(movieFeed)
+        }
         setCategoryId(e)
     }
     const getMovieData = () => {
         axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US`).then((response) => setMovieFeed(response.data.results))
-        axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`).then((response) => setMovieCategories(response.data.genres))
+        axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`).then((response) => setMovieCategories([{ id: 13, name: 'All' }].concat(response.data.genres)))
+        // const allCategory = [{ id: 13, name: 'All' }]
+        // setMovieCategories(allCategory.concat(movieCategories))
+        console.log(movieCategories)
     }
     useEffect(() => {
         getMovieData()
+
     }, [])
     return (
         <div className='movies_only'>

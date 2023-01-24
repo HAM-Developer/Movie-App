@@ -1,21 +1,19 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import { API_KEY } from '../../API'
 
 const CarouselCard = () => {
+    const carouselWidthRef = useRef(null)
+    const containerWidthRef = useRef(null)
     const [count, setCount] = useState(0)
     const [nowPlaying, setNowPlaying] = useState([])
-    const sliderRange = 100
-    const containerWidth = 6 * sliderRange
-    const sliderReCount = sliderRange - containerWidth
+    const [carouselWidth, setCarouselWidth] = useState(0)
+    const [containerWidth, setContainerWidth] = useState(0)
+    const sliderReCount = carouselWidth - containerWidth
     const getData = () => {
-
-        axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US`).then((response) => setNowPlaying((response.data.results).slice(0, 6)))
+        axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US`).then((response) => setNowPlaying(response.data.results))
     }
-    useEffect(() => {
-        getData()
-    }, [])
     if (count > 0) {
         setCount(sliderReCount)
     }
@@ -23,23 +21,33 @@ const CarouselCard = () => {
         setCount(0)
     }
     const prevSlide = () => {
-        setCount(count + sliderRange)
+        setCount(count + carouselWidth)
     }
     const nextSlide = () => {
-        setCount(count - sliderRange)
+        setCount(count - carouselWidth)
     }
     // const showCurrentSlide = (e) => {
     //     setCount("0")
     //     console.log(e)
     // }
+    useEffect(() => {
+        setCarouselWidth(carouselWidthRef.current.clientWidth)
+        setContainerWidth(containerWidthRef.current.clientWidth)
+        setTimeout(() => {
+            setCount(count - carouselWidth)
+            console.log(count)
+        }, 5000);
+        getData()
+    }, [carouselWidthRef, containerWidthRef, count])
+
     return (
         <div className="imageCarousel">
             <button className="prevBtn" onClick={prevSlide}><BsChevronLeft /></button>
-            <div className="carousel">
-                <div className="carousel-container" style={{ left: `${count}%`, width: `${containerWidth}%` }}>
+            <div className="carousel" ref={carouselWidthRef}>
+                <div className="carousel-container" ref={containerWidthRef} style={{ left: count, width: '2000%' }}>
                     {
                         nowPlaying.map(dataset => (
-                            <img key={dataset.id} src={`https://image.tmdb.org/t/p/w500${dataset.backdrop_path}`} />
+                            <img key={dataset.id} src={`https://image.tmdb.org/t/p/original${dataset.backdrop_path}`} style={{ width: carouselWidth }} />
                         ))
                     }
 

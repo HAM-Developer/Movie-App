@@ -5,10 +5,9 @@
   display: flex;
   overflow: hidden;
   /* animation: imageSlider; */
-  animation-duration: 25s;
+  animation-duration: 30s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  filter: grayscale(0.5);
 }
 
 @keyframes imageSlider {
@@ -18,22 +17,22 @@
   20% {
     transform: translateX(0vw);
   }
-  25% {
+  22% {
     transform: translateX(-100vw);
   }
   40% {
     transform: translateX(-100vw);
   }
-  45% {
+  42% {
     transform: translateX(-200vw);
   }
   70% {
     transform: translateX(-200vw);
   }
-  75% {
+  72% {
     transform: translateX(-300vw);
   }
-  95% {
+  99% {
     transform: translateX(-300vw);
   }
   100% {
@@ -44,7 +43,7 @@
   width: 100vw;
   height: 100%;
   position: relative;
-  background-position: top right;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -52,21 +51,30 @@
 .moviecard_info {
   position: absolute;
   top: 50%;
-  left: 10%;
+  left: 0%;
+  text-align: center;
   transform: translateY(-50%);
 }
 .moviecard_info h1 {
   font-size: 2.75rem;
   margin: 1rem 0;
+  line-height: 3.75rem;
+  color: var(--blue03);
+  margin: auto;
+  max-width: 20rem;
+  font-weight: bolder;
+  font-family: var(--sec-font);
 }
 .moviecard_info p {
-  max-width: 40%;
-  line-height: 1.4rem;
+  width: 90%;
+  margin: auto;
+  line-height: 1.5rem;
 }
 .moviecard_info .movie_link {
   list-style: none;
   width: fit-content;
   margin-top: 2rem;
+  margin: 2rem auto 0 auto;
 }
 .moviecard_info .movie_link:hover a {
   color: lightgray;
@@ -74,10 +82,36 @@
 .moviecard_info .movie_link a {
   text-decoration: none;
   color: white;
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 2.5rem;
   background-color: var(--blue03);
   transition: all 0.25s ease-out;
-  border-radius: 5px;
+  border-radius: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .heroImages .moviecard {
+    background-position: top right;
+  }
+  .moviecard_info {
+    text-align: left;
+    left: 10%;
+  }
+  .moviecard_info h1,
+  .moviecard_info p {
+    max-width: 32rem;
+    margin-left: 0;
+  }
+  .moviecard_info .movie_link {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .moviecard_info {
+    margin-left: 4rem;
+    top: 40%;
+  }
+  .moviecard_info p {
+    color: rgb(73, 73, 73);
+  }
 }
 /*CAROUSEL*/
 .imageCarousel {
@@ -85,7 +119,7 @@
 }
 .carousel {
   width: 80%;
-  height: 50vh;
+  height: 30rem;
   overflow: hidden;
   margin: auto;
 }
@@ -186,6 +220,7 @@ h1.heading {
   left: 1.5rem;
   transform: translateY(-50%);
 }
+/*Movies Section*/
 .section .movie__section .movies,
 .movies {
   width: 95%;
@@ -215,28 +250,38 @@ h1.heading {
   color: white;
   text-align: center;
 }
+/*UPCOMING MOVIES SECTION*/
 .section .upcoming_movies {
-  width: 1200px;
+  width: 90%;
   position: relative;
   overflow-x: hidden;
   margin: 2rem auto;
 }
 .upcoming_movies .movie {
   width: 180px;
+  height: 25rem;
   margin: 0 10px;
   overflow: hidden;
 }
+.upcoming_movies .movie .movie_link {
+  word-wrap: break-word;
+}
 .upcoming_movies .movie .movie_img {
-  width: auto;
-  object-fit: contain;
-  cursor: auto;
+  width: 100%;
+  height: fit-content;
+  object-fit: cover;
+}
+.movies .movie {
+  max-width: 20rem;
+}
+.movies .movie img {
+  height: 15rem;
 }
 .section .upcoming_movies .movies_wrapper {
   display: flex;
   position: relative;
   left: 0;
   transition: all 0.25s ease-out;
-  width: fit-content;
   cursor: pointer;
 }
 h1.page_heading {
@@ -279,6 +324,11 @@ h1.page_heading {
   background-color: white;
   color: var(--blue03);
 }
+@media screen and (min-width: 768px) {
+  .movies .movie {
+    max-width: 20rem;
+  }
+}
 @media screen and (min-width: 1200px) {
   .section .movie__section {
     width: 100%;
@@ -291,7 +341,17 @@ h1.page_heading {
   .search {
     margin-left: 6rem;
   }
-  .section h1 {
-    margin-left: 6rem;
+  .movies_only {
+    margin-left: 100px;
+  }
+  .movie_categoryList {
+    margin: 1rem 0;
+  }
+  .page_heading {
+    font-family: var(--sec-font);
+    color: var(--blue03);
+    margin-bottom: 1rem;
+    font-weight: 800;
+    font-size: 2.45rem;
   }
 }

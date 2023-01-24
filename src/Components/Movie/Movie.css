@@ -1,6 +1,6 @@
 .movie {
   position: relative;
-  width: 90%;
+  width: 20rem;
   background-color: var(--blue03);
   margin: 1rem auto;
   border-radius: 10px;
@@ -16,7 +16,7 @@
   padding: 1rem;
 }
 .movie .movie__wrapper {
-  margin-bottom: 1rem;
+  margin-top: 0.5rem;
 }
 .movie .movie__wrapper p {
   margin: 0 1rem 0 0;
@@ -35,7 +35,7 @@
   letter-spacing: 1px;
 }
 .movie .movie_link {
-  height: 2rem;
+  height: 1.75rem;
   list-style: none;
   overflow-y: hidden;
 }
@@ -56,28 +56,7 @@
 .bookmarked {
   background-color: red;
 }
-@media screen and (min-width: 768px) {
-  .movie {
-    width: 45%;
-  }
-  .movie .movie_img {
-    height: 14rem;
-  }
-}
-@media screen and (min-width: 990px) {
-  .movie {
-    width: 22.5%;
-  }
-  .upcoming_movies .movie {
-    width: 11.45rem;
-  }
-  .upcoming_movies .movie .movie_img {
-    height: 18rem;
-  }
-  .movie .movie_img {
-    height: 12rem;
-  }
-}
+
 @media screen and (min-width: 1440px) {
   .movie {
     width: 18rem;
