@@ -12,16 +12,15 @@ function Movie({ id, movieImage, movieYear, movieTitle, movieRating, seriesYear,
     const movieDate = () => {
         setDays(Math.round(((new Date) - (new Date(`${movieYear}`))) / (1000 * 60 * 60 * 24)))
         setSeriesDays(Math.round(((new Date) - (new Date(`${seriesYear}`))) / (1000 * 60 * 60 * 24)))
-        if (days > 30) {
-            setTime('month')
-            setSeriesTime('month')
-            // setDays(Math.round(days / 30))
-        } if (days > 360) {
-            // setDays(Math.round(days / 360))
-            setSeriesTime('year')
-            setTime("year")
-        }
-        console.log('timeRef')
+        // if (days > 30) {
+        //     setTime('month')
+        //     setSeriesTime('month')
+        //     // setDays(Math.round(days / 30))
+        // } if (days > 360) {
+        //     // setDays(Math.round(days / 360))
+        //     setSeriesTime('year')
+        //     setTime("year")
+        // }
     }
     useEffect(() => {
         movieDate()

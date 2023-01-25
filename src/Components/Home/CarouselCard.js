@@ -33,10 +33,10 @@ const CarouselCard = () => {
     useEffect(() => {
         setCarouselWidth(carouselWidthRef.current.clientWidth)
         setContainerWidth(containerWidthRef.current.clientWidth)
-        setTimeout(() => {
-            setCount(count - carouselWidth)
-            console.log(count)
-        }, 5000);
+        // setTimeout(() => {
+        //     setCount(count - carouselWidth)
+        //     console.log(count)
+        // }, 5000);
         getData()
     }, [carouselWidthRef, containerWidthRef, count])
 

@@ -24,7 +24,7 @@ nav {
   top: 12vh;
   z-index: 100;
   width: 100%;
-  background-color: var(--blue01);
+  background-color: var(--sec-clr);
   overflow: hidden;
   transition: all 0.1s ease-out;
 }
@@ -40,8 +40,8 @@ nav a {
 nav button {
   padding: 0.75rem 2rem;
   color: white;
-  background-color: var(--blue02);
-  border-radius: 15px;
+  background-color: var(--pr-clr);
+  border-radius: 5px;
   cursor: pointer;
   border: none;
   font-size: 0.85rem;
@@ -51,6 +51,7 @@ nav button {
   width: 1.75rem;
   height: 1.75rem;
   stroke: white;
+  cursor: pointer;
 }
 .category_link {
   color: white;
@@ -101,7 +102,7 @@ nav button {
     top: 0;
     z-index: 1000;
     left: 0rem;
-    background-color: var(--blue01);
+    background-color: var(--sec-clr);
     width: 6.75rem;
     border-radius: 10px;
     height: 35rem;
@@ -120,7 +121,7 @@ nav button {
   }
 }
 .active_link {
-  color: var(--blue02);
+  color: var(--pr-clr);
 }
 .links {
   color: white;

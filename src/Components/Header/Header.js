@@ -1,12 +1,11 @@
 import "./Header.css"
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { MdMovie } from "react-icons/md"
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { FiMenu } from "react-icons/fi"
 function Header() {
     const [linkId, setLinkId] = useState()
-    const [toggleMenu, setToggleMenu] = useState(false)
-    const menuRef = useRef(null)
+    const [toggleMenu, setToggleMenu] = useState(true)
     const links = [
         { path: '/', name: "Home" },
         { path: '/movies', name: "Movies" },
@@ -24,7 +23,9 @@ function Header() {
         <header className="header_wrapper" >
             <div className='header'>
                 <div className='logo'>
-                    <MdMovie />
+                    <Link to='/'>
+                        <MdMovie />
+                    </Link>
                 </div>
                 <nav className={toggleMenu ? 'close_menu' : ' show_menu'} >
                     {links.map(link => <Link to={link.path} key={link.path} className={`${link.path === linkId ? "active_link" : "links"}`} onClick={() => activeLink(link.path)} >{link.name}</Link>)}

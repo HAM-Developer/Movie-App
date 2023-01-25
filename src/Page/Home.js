@@ -1,10 +1,10 @@
 import React from 'react'
-import Section from '../Components/Home/Home';
+import HomePage from '../Components/Home/Home';
 const Home = () => {
 
     return (
         <div className="App">
-            <Section />
+            <HomePage />
         </div>
     );
 }

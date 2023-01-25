@@ -1,7 +1,6 @@
 .movie {
   position: relative;
   width: 20rem;
-  background-color: var(--blue03);
   margin: 1rem auto;
   border-radius: 10px;
   padding-bottom: 0.5rem;
@@ -13,15 +12,15 @@
   border-radius: 10px;
 }
 .movie__info {
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 0;
 }
 .movie .movie__wrapper {
-  margin-top: 0.5rem;
+  margin-top: 2px;
 }
 .movie .movie__wrapper p {
   margin: 0 1rem 0 0;
   display: inline;
-  color: var(--gray01);
+  color: lightgray;
   font-size: 0.95rem;
 }
 
@@ -31,7 +30,7 @@
   font-weight: 600;
   font-size: 1.25rem;
   cursor: pointer;
-  color: var(--gray01);
+  color: white;
   letter-spacing: 1px;
 }
 .movie .movie_link {
@@ -72,9 +71,4 @@
   float: left;
   height: calc(100vh - 68px);
   background-color: var(--blue01);
-}
-
-.movie__rating {
-  font-size: 0.85rem;
-  font-weight: 700;
 }

@@ -25,7 +25,7 @@
 .movieInfo h2 {
   font-family: var(--sec-font);
   font-weight: 800;
-  color: var(--blue00);
+  color: var(--pr-clr);
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 2rem;
@@ -33,7 +33,10 @@
 }
 .movieInfo h3 {
   margin-right: 0.5rem;
-  color: var(--blue00);
+  color: rgb(243, 243, 243);
+}
+.movieInfo p {
+  color: rgb(226, 226, 226);
 }
 .movieInfo_description,
 .movieInfo_genre,
@@ -95,6 +98,9 @@
   position: relative;
   margin: 0 auto;
 }
+.similar_movies .movie {
+  color: white;
+}
 .similar_movies::-webkit-scrollbar {
   width: 10px;
 }
@@ -111,6 +117,7 @@
   padding: 0.5rem 0;
   text-align: center;
   width: 100%;
+  color: var(--pr-clr);
 }
 @media screen and (min-width: 768px) {
   .movieInfo {
@@ -125,6 +132,10 @@
     text-align: left;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+  .similar_movies {
+    width: 95%;
+    margin: auto;
   }
   .movieInfo_description .desc_container {
     width: 25rem;
