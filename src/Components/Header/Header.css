@@ -10,7 +10,7 @@
 }
 .header .logo svg {
   width: 2rem;
-  fill: var(--red00);
+  fill: var(--red);
   height: 2rem;
 }
 nav {

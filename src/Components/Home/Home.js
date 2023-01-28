@@ -1,6 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import { motion } from "framer-motion"
-import { BsSearch } from 'react-icons/bs'
 import Movie from '../Movie/Movie'
 import { MovieContext } from "../../App"
 import "./Home.css"
@@ -8,21 +7,15 @@ import { API_KEY } from '../../API'
 import axios from 'axios'
 import MovieCard from './MovieCard'
 import CarouselCard from './CarouselCard'
-function Section() {
+import formSvg from "./formSVG.svg"
+function Home() {
     const movieContainer = useRef(null)
     const [sliderWidth, setSliderWidth] = useState(0)
-    const [feed, setFeed] = useState([])
     const [nowPlaying, setNowPlaying] = useState([])
     const [topRatedTV, setTopRatedTV] = useState([])
     const { getSeries } = useContext(MovieContext)
-    // const searchFeed = (e) => {
-    //     setTopRatedTV(topRatedTV.filter(movie => e.target.value === movie.title))
-    //     setFeed(feed.filter(movie => e.target.value === movie.title[0]))
-    //     topRatedTV.forEach(movie => console.log(movie.title[0]))
-    //     console.log(e.target.value)
-    // }
+
     const getData = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US`).then((response) => setFeed(response.data.results))
         axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US`).then((response) => setNowPlaying(response.data.results))
         axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US`).then((response) => setTopRatedTV(response.data.results))
     }
@@ -36,11 +29,6 @@ function Section() {
     return (
         <div className='section'>
             <div className='movie__section'>
-                {/* <div className='search' >
-                    <BsSearch className='searchIcon' />
-                    <input type="text" placeholder="Search for movies and TV series" onChange={searchFeed} />
-                 </div> */}
-
                 <motion.div className='heroImages '
                 >
                     {
@@ -49,7 +37,7 @@ function Section() {
                         ))
                     }
                 </motion.div>
-                <h1 className='heading'>Upcoming Movies</h1>
+                <h1 className='heading'>Top Rated TV Shows</h1>
                 <div className='upcoming_movies ' ref={movieContainer} >
                     <motion.div className='movies_wrapper' style={{ width: topRatedTV.length * 200 }} drag='x' dragConstraints={{ left: sliderWidth, right: 0 }} dragElastic="0.1" dragMomentum={false}  >
                         {
@@ -61,17 +49,30 @@ function Section() {
                 </div>
                 <h1 className='heading'>Top TV Shows</h1>
                 <CarouselCard />
-                <h1 className='heading'>Recommended for you</h1>
-                <div className='movies'>
-                    {
-                        feed.map(dataset => (
-                            <Movie key={dataset.id} id={dataset.id} movieTitle={dataset.title} movieImage={dataset.poster_path} movieRating={dataset.vote_average} movieYear={dataset.release_date} movieGenre={dataset.genre_ids} />
-                        ))
-                    }
-                </div>
+                <form>
+                    <div className='form_wrapper1'>
+                        <img src={formSvg} alt="form svg" />
+                    </div>
+                    <div className='form_Wrapper'>
+                        <div className='input_info'>
+                            <label>Username:</label>
+                            <input type='text' placeholder='Username' />
+                        </div>
+                        <div className='input_info'>
+                            <label>Email:</label>
+                            <input type='text' placeholder='Email Address' />
+                        </div>
+                        <label>Message:</label>
+                        <textarea placeholder='Your message here ...' />
+                        <button type='submit' >Submit</button>
+                    </div>
+                </form>
+                <footer>
+                    &copy; Copyright 2023. All rights reserved
+                </footer>
             </div>
         </div >
     )
 }
 
-export default Section
+export default Home

@@ -6,13 +6,13 @@ import { API_KEY } from '../../API'
 const CarouselCard = () => {
     const carouselWidthRef = useRef(null)
     const containerWidthRef = useRef(null)
+    const [onAirTV, setOnAirTV] = useState([])
     const [count, setCount] = useState(0)
-    const [nowPlaying, setNowPlaying] = useState([])
     const [carouselWidth, setCarouselWidth] = useState(0)
     const [containerWidth, setContainerWidth] = useState(0)
     const sliderReCount = carouselWidth - containerWidth
     const getData = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US`).then((response) => setNowPlaying(response.data.results))
+        axios.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=${API_KEY}&language=en-US`).then((response) => setOnAirTV(response.data.results))
     }
     if (count > 0) {
         setCount(sliderReCount)
@@ -46,8 +46,8 @@ const CarouselCard = () => {
             <div className="carousel" ref={carouselWidthRef}>
                 <div className="carousel-container" ref={containerWidthRef} style={{ left: count, width: '2000%' }}>
                     {
-                        nowPlaying.map(dataset => (
-                            <img key={dataset.id} src={`https://image.tmdb.org/t/p/original${dataset.backdrop_path}`} style={{ width: carouselWidth }} />
+                        onAirTV.map(dataset => (
+                            <img key={dataset.id} src={`https://image.tmdb.org/t/p/original${dataset.poster_path}`} style={{ width: carouselWidth }} alt={dataset.id} />
                         ))
                     }
 

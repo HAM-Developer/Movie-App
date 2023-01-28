@@ -2,13 +2,7 @@
 :root {
   --pr-clr: #d6b53b;
   --sec-clr: #0b101a;
-  --blue01: #161d2f;
-  --blue03: #08132b;
-  --blue04: #203264;
-  --red00: rgb(238, 23, 23);
-  --white: #ffffff;
-  --gray00: rgba(25, 21, 21, 0.53);
-  --gray01: rgba(224, 224, 224, 0.904);
+  --red: red;
   --pr-font: "Roboto", sans-serif;
   --sec-font: "Bodoni Moda", serif;
 }

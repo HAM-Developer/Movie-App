@@ -5,13 +5,13 @@ import { BookmarkIcon } from '@heroicons/react/24/outline'
 
 function Movie({ id, movieImage, movieYear, movieTitle, movieRating, seriesYear, seriesTitle }) {
     const timeRef = useRef(null)
-    const [time, setTime] = useState('days')
-    const [seriesTime, setSeriesTime] = useState('days')
+    // const [time, setTime] = useState('days')
+    // const [seriesTime, setSeriesTime] = useState('days')
     const [days, setDays] = useState(null)
     const [seriesDays, setSeriesDays] = useState(null)
     const movieDate = () => {
-        setDays(Math.round(((new Date) - (new Date(`${movieYear}`))) / (1000 * 60 * 60 * 24)))
-        setSeriesDays(Math.round(((new Date) - (new Date(`${seriesYear}`))) / (1000 * 60 * 60 * 24)))
+        setDays(Math.round(((new Date()) - (new Date(`${movieYear}`))) / (1000 * 60 * 60 * 24)))
+        setSeriesDays(Math.round(((new Date()) - (new Date(`${seriesYear}`))) / (1000 * 60 * 60 * 24)))
         // if (days > 30) {
         //     setTime('month')
         //     setSeriesTime('month')
@@ -24,7 +24,7 @@ function Movie({ id, movieImage, movieYear, movieTitle, movieRating, seriesYear,
     }
     useEffect(() => {
         movieDate()
-    }, [movieDate])
+    })
 
     return (
         <div className='movie'>
@@ -34,7 +34,7 @@ function Movie({ id, movieImage, movieYear, movieTitle, movieRating, seriesYear,
                     <Link to={`/moviedetail/${id}`} className='movie_title' >{movieTitle ? movieTitle : seriesTitle}</Link>
                 </li>
                 <div className='movie__wrapper'>
-                    <p className='movie__year' ref={timeRef}>{days ? `${days} ${time} ago` : `${seriesDays} ${seriesTime} ago`} </p>
+                    <p className='movie__year' ref={timeRef}>{days ? `${days} days ago` : `${seriesDays} days ago`} </p>
                     <p className='movie__rating'>{`${movieRating}`.slice(0, 3)}</p>
                 </div>
             </div>
