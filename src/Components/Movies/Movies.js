@@ -5,6 +5,7 @@ import "../Movie/Movie.css"
 import { API_KEY } from '../../API'
 import { motion } from "framer-motion"
 import axios from 'axios'
+import MovieCard from '../Home/MovieCard'
 
 const Movies = () => {
     const [movieFeed, setMovieFeed] = useState([])
@@ -12,10 +13,16 @@ const Movies = () => {
     const [categoryWidth, setCategoryWidth] = useState(0)
     const [categoryId, setCategoryId] = useState([])
     const [movieCategories, setMovieCategories] = useState([])
+    const [selectMovieCategory, setSelectMovieCategory] = useState('')
     const categoryListRef = useRef(null)
     const categoryWrapRef = useRef(null)
     function changeMovieFeed(e) {
         setChangeFeed(movieFeed.filter(movie => parseInt(movie.genre_ids[0]) === e))
+        movieCategories.forEach(category => {
+            if (category.id === e) {
+                setSelectMovieCategory(category.name)
+            }
+        })
         if (e === 13) {
             setChangeFeed(movieFeed)
         }
@@ -43,15 +50,11 @@ const Movies = () => {
                     }
                 </motion.div>
             </div>
-            <h1 className='page_heading'>Movies</h1>
-            <div className='movies'>    {changeFeed.length === 0 ?
-                movieFeed.map(dataset => (
-                    <Movie key={dataset.id} id={dataset.id} movieTitle={dataset.title} movieImage={dataset.poster_path} movieRating={dataset.vote_average} movieYear={dataset.release_date} movieGenre={dataset.genre_ids} />
-                ))
-                :
+            <div className='movies'>    {changeFeed.length !== 0 ?
                 changeFeed.map(dataset => (
                     <Movie key={dataset.id} id={dataset.id} movieTitle={dataset.title} movieImage={dataset.poster_path} movieRating={dataset.vote_average} movieYear={dataset.release_date} movieGenre={dataset.genre_ids} />))
-
+                :
+                <h1 style={{ marginTop: '1rem', fontWeight: 'normal', textAlign: 'center' }}>No movies regarding <h1 style={{ color: 'var(--pr-clr)' }}>'{selectMovieCategory}'</h1></h1>
             }</div>
 
         </div>

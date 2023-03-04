@@ -1,7 +1,6 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from "framer-motion"
 import Movie from '../Movie/Movie'
-import { MovieContext } from "../../App"
 import "./Home.css"
 import { API_KEY } from '../../API'
 import axios from 'axios'
@@ -13,7 +12,6 @@ function Home() {
     const [sliderWidth, setSliderWidth] = useState(0)
     const [nowPlaying, setNowPlaying] = useState([])
     const [topRatedTV, setTopRatedTV] = useState([])
-    const { getSeries } = useContext(MovieContext)
 
     const getData = () => {
         axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US`).then((response) => setNowPlaying(response.data.results))
@@ -42,7 +40,8 @@ function Home() {
                     <motion.div className='movies_wrapper' style={{ width: topRatedTV.length * 200 }} drag='x' dragConstraints={{ left: sliderWidth, right: 0 }} dragElastic="0.1" dragMomentum={false}  >
                         {
                             topRatedTV.map(dataset => (
-                                <Movie key={dataset.id} id={dataset.id} seriesTitle={dataset.name} movieImage={dataset.poster_path} movieRating={dataset.vote_average} seriesYear={dataset.first_air_date} getSeries={getSeries} />
+                                <Movie key={dataset.id} id={dataset.id} seriesTitle={dataset.name} movieImage={dataset.poster_path} movieRating={dataset.vote_average} seriesYear={dataset.first_air_date}
+                                />
                             ))
                         }
                     </motion.div>

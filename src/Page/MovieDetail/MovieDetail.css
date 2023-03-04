@@ -58,6 +58,7 @@
   bottom: -1.25rem;
   left: 0;
   font-weight: 700;
+  color: var(--pr-clr);
 }
 .movieInfo_description .desc_container {
   overflow: hidden;
@@ -84,7 +85,7 @@
 .movieInfo_genre p {
   padding: 2px 8px;
   margin: 0.5rem 0 0.5rem 0.5rem;
-  box-shadow: 0 0 1px 1px var(--gray01);
+  box-shadow: 0 0 1px 1px gainsboro;
   border-radius: 1.2rem;
 }
 .moviedetail h1 {
@@ -121,27 +122,34 @@
 }
 @media screen and (min-width: 768px) {
   .movieInfo {
-    width: 60%;
-    margin: auto;
+    max-width: 30rem;
+    margin: 0;
+    text-align: left;
+  }
+  .moviedetail .moviedetail_img {
+    margin: 0;
   }
 }
 @media screen and (min-width: 1000px) {
   .moviedetail_wrapper {
     flex-direction: row;
     height: 600px;
-    text-align: left;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
+    padding-top: 5rem;
   }
   .similar_movies {
     width: 95%;
     margin: auto;
   }
+  .moviedetail .moviedetail_img {
+    margin-right: 2rem;
+  }
   .movieInfo_description .desc_container {
     width: 25rem;
   }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1400px) {
   .moviedetail_wrapper {
     margin-left: 10%;
   }

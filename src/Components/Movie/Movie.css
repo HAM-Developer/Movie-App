@@ -46,10 +46,10 @@
   padding: 0.25rem 0.5rem;
   border-radius: 50%;
   cursor: pointer;
+  color: white;
 }
 .movie .bookmarkedIcon svg {
   width: 0.8rem;
-  fill: var(--gray01);
   height: 0.8rem;
 }
 .bookmarked {

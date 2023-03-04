@@ -193,7 +193,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgb(199, 199, 199);
+  background-color: rgba(197, 197, 197, 0.541);
   z-index: 10;
   border: none;
   transition: all 0.25s ease-out;
@@ -201,11 +201,12 @@
   padding: 5px;
 }
 .imageCarousel button:hover {
-  background-color: rgb(231, 229, 229);
+  background-color: rgba(231, 229, 229, 0.596);
 }
 .imageCarousel button svg {
   width: 2rem;
   height: 2rem;
+  color: var(--pr-clr);
 }
 .imageCarousel button:first-child {
   left: 10%;
@@ -304,7 +305,7 @@ form .form_wrapper1 img {
 }
 /*Footer*/
 footer {
-  background-color: var(--sec-clr);
+  background-color: #1a233556;
   text-align: center;
   padding: 1rem;
 }
@@ -359,6 +360,9 @@ footer {
   height: fit-content;
   object-fit: cover;
 }
+.upcoming_movies .bookmarkedIcon svg {
+  background-color: transparent;
+}
 .movies .movie {
   max-width: 20rem;
 }
@@ -391,6 +395,7 @@ h1.page_heading {
   align-items: center;
   /* width: fit-content; */
   cursor: pointer;
+  height: 2rem;
 }
 .categories_filter li {
   padding: 3px 10px;
@@ -400,6 +405,7 @@ h1.page_heading {
   cursor: pointer;
   margin: 0 5px;
   transition: all 0.35s ease-out;
+  white-space: nowrap;
 }
 .categories_filter li:hover {
   background-color: white;
@@ -443,4 +449,9 @@ h1.page_heading {
     font-weight: 800;
     font-size: 2.45rem;
   }
+}
+/*movies and series margin top*/
+.movies_only,
+.series {
+  margin-top: 1rem;
 }

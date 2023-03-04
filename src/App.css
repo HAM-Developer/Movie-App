@@ -3,6 +3,7 @@
   --pr-clr: #d6b53b;
   --sec-clr: #0b101a;
   --red: red;
+  --gray00: rgba(128, 128, 128, 0.562);
   --pr-font: "Roboto", sans-serif;
   --sec-font: "Bodoni Moda", serif;
 }

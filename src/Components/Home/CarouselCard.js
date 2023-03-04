@@ -47,7 +47,8 @@ const CarouselCard = () => {
                 <div className="carousel-container" ref={containerWidthRef} style={{ left: count, width: '2000%' }}>
                     {
                         onAirTV.map(dataset => (
-                            <img key={dataset.id} src={`https://image.tmdb.org/t/p/original${dataset.poster_path}`} style={{ width: carouselWidth }} alt={dataset.id} />
+                            // <img key={dataset.id} src={`https://image.tmdb.org/t/p/original${dataset.poster_path}`} style={{ width: carouselWidth }} alt={dataset.id} />
+                            <div key={dataset.id} style={{ backgroundImage: `url(${`https://image.tmdb.org/t/p/original${dataset.backdrop_path}`})`, width: carouselWidth, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'top center' }} ></div>
                         ))
                     }
 

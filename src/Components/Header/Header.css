@@ -1,10 +1,13 @@
+header {
+  box-shadow: 0 0 1px 1px var(--gray00);
+}
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
   padding: 0rem 1.5rem;
-  height: 12vh;
+  height: 10vh;
   letter-spacing: 1px;
   position: relative;
 }
@@ -21,7 +24,7 @@ nav {
   align-items: flex-start;
   position: absolute;
   left: 0;
-  top: 12vh;
+  top: 10vh;
   z-index: 100;
   width: 100%;
   background-color: var(--sec-clr);
