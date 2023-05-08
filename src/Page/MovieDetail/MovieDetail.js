@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react'
 import "./MovieDetail.css"
 import axios from 'axios'
-import { API_KEY } from '../../API'
 import Movie from '../../Components/Movie/Movie'
 import { useParams } from 'react-router-dom'
+import { API_KEY } from '../../API'
+
 const MovieDetail = () => {
     const { id } = useParams()
     const descHeight = useRef(null)

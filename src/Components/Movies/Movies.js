@@ -2,10 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import Movie from '../Movie/Movie'
 import "../Home/Home.css"
 import "../Movie/Movie.css"
-import { API_KEY } from '../../API'
 import { motion } from "framer-motion"
 import axios from 'axios'
-import MovieCard from '../Home/MovieCard'
+import { API_KEY } from '../../API'
 
 const Movies = () => {
     const [movieFeed, setMovieFeed] = useState([])

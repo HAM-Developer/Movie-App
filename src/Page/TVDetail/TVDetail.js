@@ -5,6 +5,7 @@ import { API_KEY } from '../../API'
 import { useParams } from 'react-router-dom'
 import Movie from '../../Components/Movie/Movie'
 const TVDetail = () => {
+
     const { id } = useParams()
     const [tvDetails, setTVDetails] = useState([])
     const [similarTV, setSimilarTV] = useState([])
