@@ -12,10 +12,7 @@ const MovieDetail = () => {
     const descBtnRef = useRef("More")
     const [movieDetails, setMovieDetails] = useState([])
     const [similarMovies, setSimilarMovies] = useState([])
-    useEffect(() => {
-        getData()
-        window.scrollTo(0, 0)
-    }, [id])
+
     const getData = () => {
         axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${API_KEY}&language=en-US`).then(function (res) {
             setSimilarMovies(res.data.results)
@@ -24,7 +21,6 @@ const MovieDetail = () => {
             setMovieDetails(res.data)
         })
     }
-
     function showDescription() {
         let descConHeight = window.getComputedStyle(descConRef.current).maxHeight
         if (descConHeight === "75px") {
@@ -36,6 +32,11 @@ const MovieDetail = () => {
         }
 
     }
+    useEffect(() => {
+        getData()
+        window.scrollTo(0, 0)
+    }, [id])
+
     return (
         <div className='moviedetail'>
             <div className='moviedetail_container' style={{

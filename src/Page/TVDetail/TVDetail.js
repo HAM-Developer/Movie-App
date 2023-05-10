@@ -35,7 +35,6 @@ const TVDetail = () => {
         getData()
         window.scrollTo(0, 0)
     }, [id])
-    console.log(tvDetails)
     return (
         <div className='moviedetail'>
             <div className='moviedetail_container' style={{
