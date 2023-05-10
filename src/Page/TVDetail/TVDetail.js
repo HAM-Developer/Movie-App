@@ -23,16 +23,14 @@ const TVDetail = () => {
         }
 
     }
-    const getData = () => {
+
+    useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${API_KEY}&language=en-US`).then(function (res) {
             setSimilarTV(res.data.results)
         })
         axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}&language=en-US`).then(function (res) {
             setTVDetails(res.data)
         })
-    }
-    useEffect(() => {
-        getData()
         window.scrollTo(0, 0)
     }, [id])
     return (
