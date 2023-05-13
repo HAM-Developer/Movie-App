@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
-import React, { useEffect, useRef, useState, useContext } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./Movie.css"
-import { BookmarkIcon } from '@heroicons/react/24/outline'
-import { BookmarkContext } from '../../App'
+// import { BookmarkIcon } from '@heroicons/react/24/outline'
+// import { BookmarkContext } from '../../App'
 function Movie({ id, movieImage, movieYear, movieTitle, movieRating, seriesYear, seriesTitle }) {
     const timeRef = useRef(null)
-    const bookmarkMovies = useContext(BookmarkContext)
+    // const bookmarkMovies = useContext(BookmarkContext)
     // const [time, setTime] = useState('days')
     // const [seriesTime, setSeriesTime] = useState('days')
     const [days, setDays] = useState(null)
