@@ -72,3 +72,7 @@
   height: calc(100vh - 68px);
   background-color: var(--blue01);
 }
+.movie__wrapper p.movie__rating {
+  color: var(--pr-clr);
+  font-weight: 700;
+}

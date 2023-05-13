@@ -14,7 +14,7 @@ function App() {
   let bookMarkMovies = []
   function addBookmarkMovie(e) {
     bookMarkMovies.push(e.target.parentElement)
-    console.log(e.target.parentElement)
+    console.log(e)
   }
   console.log(bookMarkMovies)
   return (

@@ -36,7 +36,9 @@ const Movies = () => {
         getMovieData()
         setCategoryWidth(categoryListWidth - 1654)
     }, [categoryListRef, categoryWidth])
-
+    const showMovieFeed = changeFeed.length === 0 ?
+        <h1 style={{ marginTop: '1rem', fontWeight: 'normal', textAlign: 'center' }}>No movies regarding <span style={{ color: 'var(--pr-clr)', display: 'block' }}>'{selectMovieCategory}'</span></h1> : changeFeed.map(dataset => (
+            <Movie key={dataset.id} id={dataset.id} movieTitle={dataset.title} movieImage={dataset.poster_path} movieRating={dataset.vote_average} movieYear={dataset.release_date} movieGenre={dataset.genre_ids} />))
     return (
         <div className='movies_only'>
             <div className="movie_categories categories_filter" ref={categoryListRef}>
@@ -51,9 +53,7 @@ const Movies = () => {
             </div>
             <div className='movies'>    {changeFeed.length !== 0 ?
                 changeFeed.map(dataset => (
-                    <Movie key={dataset.id} id={dataset.id} movieTitle={dataset.title} movieImage={dataset.poster_path} movieRating={dataset.vote_average} movieYear={dataset.release_date} movieGenre={dataset.genre_ids} />))
-                :
-                <h1 style={{ marginTop: '1rem', fontWeight: 'normal', textAlign: 'center' }}>No movies regarding <h1 style={{ color: 'var(--pr-clr)' }}>'{selectMovieCategory}'</h1></h1>
+                    <Movie key={dataset.id} id={dataset.id} movieTitle={dataset.title} movieImage={dataset.poster_path} movieRating={dataset.vote_average} movieYear={dataset.release_date} movieGenre={dataset.genre_ids} />)) : showMovieFeed
             }</div>
 
         </div>

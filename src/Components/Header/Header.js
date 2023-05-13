@@ -10,7 +10,7 @@ function Header() {
         { path: '/', name: "Home" },
         { path: '/movies', name: "Movies" },
         { path: '/series', name: "Series" },
-        { path: '/bookmark', name: "Bookmark" },
+        // { path: '/bookmark', name: "Bookmark" },
     ]
     function changeMenu() {
         !toggleMenu ? setToggleMenu(true) : setToggleMenu(false)

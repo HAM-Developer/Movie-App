@@ -5,7 +5,7 @@ import { BookmarkIcon } from '@heroicons/react/24/outline'
 import { BookmarkContext } from '../../App'
 function Movie({ id, movieImage, movieYear, movieTitle, movieRating, seriesYear, seriesTitle }) {
     const timeRef = useRef(null)
-    const bookmarkMovie = useContext(BookmarkContext)
+    const bookmarkMovies = useContext(BookmarkContext)
     // const [time, setTime] = useState('days')
     // const [seriesTime, setSeriesTime] = useState('days')
     const [days, setDays] = useState(null)
@@ -16,17 +16,19 @@ function Movie({ id, movieImage, movieYear, movieTitle, movieRating, seriesYear,
         // if (days > 30) {
         //     setTime('month')
         //     setSeriesTime('month')
-        //     // setDays(Math.round(days / 30))
-        // } if (days > 360) {
-        //     // setDays(Math.round(days / 360))
+        //     setDays(Math.round(days / 30))
+        // } else if (days > 360) {
+        //     setDays(Math.round(days / 360))
         //     setSeriesTime('year')
         //     setTime("year")
+        // } else {
+        //     setTime('days')
+        //     setDays('')
         // }
     }
     useEffect(() => {
         movieDate()
     })
-
     return (
         <div className='movie'>
             <img className='movie_img' src={`https://image.tmdb.org/t/p/w500${movieImage}`} alt="movie" />
@@ -41,7 +43,7 @@ function Movie({ id, movieImage, movieYear, movieTitle, movieRating, seriesYear,
                     <p className='movie__rating'>{`${movieRating}`.slice(0, 3)}</p>
                 </div>
             </div>
-            <div className='bookmarkedIcon' onClick={bookmarkMovie}><BookmarkIcon /></div>
+            {/* <div className='bookmarkedIcon' onClick={bookmarkMovies}><BookmarkIcon /></div> */}
         </div>
     )
 }
